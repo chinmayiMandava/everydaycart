@@ -44,7 +44,7 @@
         @if(product.isAddedToFav) {
         <span
           matTooltip="Wish list"
-          (click)="addToFav(product, 'added')"
+          (click)="$event.stopPropagation(); addToFav(product, 'added')"
           class="icon heart-added-icon"
         ></span>
         } @else {
