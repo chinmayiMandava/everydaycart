@@ -50,7 +50,7 @@
         } @else {
         <span
           matTooltip="Wish list"
-          (click)="addToFav(product)"
+          (click)="$event.stopPropagation(); addToFav(product)"
           class="icon heart-add-icon"
         ></span>
         }
