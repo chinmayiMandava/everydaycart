@@ -1,0 +1,109 @@
+* {
+  font-size: 1.6rem;
+}
+
+p {
+  line-height: 3rem;
+}
+
+mat-form-field {
+  width: 40%;
+}
+
+.address-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.grouped-deets {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  mat-form-field {
+    width: 30%;
+  }
+}
+
+.shipping-options {
+  gap: 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+mat-radio-button {
+  border: 1.5px solid #e67700;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  padding: 1.6rem;
+  margin-left: 0;
+}
+
+.shipping-fee {
+  color: #e67700;
+  letter-spacing: 1.2;
+  font-weight: 550;
+}
+
+.shipping-btns {
+  gap: 4px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.payment-option {
+  width: 45rem;
+  display: flex;
+  border-radius: 4px;
+  background-color: #fff;
+  justify-content: space-between;
+  padding: 2.4rem;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.payment-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  display: inline-block;
+}
+
+.sub-text {
+  color: #777;
+}
+
+.total-amount {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.upi-pay {
+  background: url("/icons/upi-pay.svg") no-repeat center;
+}
+
+.card-pay {
+  background: url("/icons/card-pay.svg") no-repeat center;
+}
+
+.net-banking-pay {
+  background: url("/icons/net-banking-pay.svg") no-repeat center;
+}
+
+.cod-pay {
+  background: url("/icons/cash-pay.svg") no-repeat center;
+}
+
+.right-icon {
+  background: url("/icons/chevron-right.svg") no-repeat center;
+}

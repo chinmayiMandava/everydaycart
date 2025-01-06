@@ -1,0 +1,24 @@
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+$theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$yellow-palette,
+    ),
+    typography: (
+      brand-family: "Rubik, sans-serif",
+    ),
+    density: (
+      scale: -1,
+    ),
+  )
+);
+
+html {
+  @include mat.core-theme($theme);
+  @include mat.button-theme($theme);
+  @include mat.all-component-themes($theme);
+}

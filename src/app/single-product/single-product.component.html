@@ -1,0 +1,104 @@
+<section class="product-deets">
+  <div class="navigation">
+    <p>
+      <span routerLink="" class="route">Home</span><span class="nav">/</span>
+      <span class="current">{{ product.name }}</span>
+    </p>
+  </div>
+  <div class="product">
+    <div class="product-img">
+      <img src="{{ product.imageSrc }}" />
+    </div>
+    <div class="product-description">
+      <p class="product-title">{{ product.name }}</p>
+      <span class="ratings">
+        <span class="icon--sm star-icon"></span>
+        <span class="icon--sm star-icon"></span>
+        <span class="icon--sm star-icon"></span>
+        <span class="icon--sm star-icon"></span>
+        <span class="icon--sm star-icon"></span>
+        <span>
+          <span>{{ product.averageReviews }}</span>
+          <span>({{ product.reviews }})</span>
+        </span>
+      </span>
+      <span class="price">&#8377; {{ product.price }}</span>
+      <span
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo error
+        quis aspernatur cum rerum rem quaerat voluptatum eveniet, ut distinctio
+        eaque debitis, necessitatibus eligendi quos reiciendis, officiis iusto
+        consectetur veniam.</span
+      >
+      <span class="action-btns border">
+        <span
+          class="icon remove-icon"
+          matTooltip="Reduce"
+          (click)="updateQuantity('reduce', product)"
+        ></span>
+        <span class="quantity">{{ product.quantity }}</span>
+        <span
+          class="icon add-icon"
+          matTooltip="Add"
+          (click)="updateQuantity('add', product)"
+        ></span>
+      </span>
+      <button
+        mat-raised-button
+        (click)="addToCart(product)"
+        [disabled]="product.availability === 'SOLD_OUT'"
+      >
+        Add to cart
+      </button>
+    </div>
+  </div>
+
+  <mat-tab-group>
+    <mat-tab label="Product details">
+      <span class="deets">
+        <p class="deets-head">Nutrient Value & Benefits</p>
+        <p class="deets-descp">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio nisi
+          ea vero itaque ratione expedita enim quas officiis tempore, inventore
+          laudantium iusto perspiciatis est repellendus laboriosam, provident
+          non pariatur! Maxime!
+        </p>
+      </span>
+      <span class="deets">
+        <p class="deets-head">Storage Tips</p>
+        <p class="deets-descp">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio nisi
+          ea vero itaque ratione expedita enim quas officiis tempore, inventore
+          laudantium iusto perspiciatis est repellendus laboriosam, provident
+          non pariatur! Maxime!
+        </p>
+      </span>
+      <span class="deets">
+        <p class="deets-head">Discalimer</p>
+        <p class="deets-descp">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio nisi
+          ea vero itaque ratione expedita enim quas officiis tempore, inventore
+          laudantium iusto perspiciatis est repellendus laboriosam, provident
+          non pariatur! Maxime!
+        </p>
+      </span>
+    </mat-tab>
+    <mat-tab label="Additional information">
+      <span class="deets">
+        <p class="deets-head">Expiry date</p>
+        <p class="deets-descp">
+          amet consectetur adipisicing elit. Rem adipisci id doloremque rep
+        </p>
+      </span>
+      <span class="deets">
+        <p class="deets-head">More details</p>
+        <p class="deets-descp">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio nisi
+          ea vero itaque ratione expedita enim quas officiis tempore, inventore
+          laudantium iusto perspiciatis est repellendus laboriosam, provident
+          non pariatur! Maxime!
+        </p>
+      </span>
+    </mat-tab>
+  </mat-tab-group>
+  <div class="reviews"></div>
+</section>

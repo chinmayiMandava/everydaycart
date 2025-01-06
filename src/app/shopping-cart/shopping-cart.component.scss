@@ -1,0 +1,95 @@
+section {
+  padding: 6rem;
+}
+
+h2 {
+  margin-bottom: 4rem !important;
+}
+
+.table {
+  height: calc(100vh - 35rem);
+  overflow: auto;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.product:last-of-type {
+  border-bottom: unset;
+}
+
+.image {
+  width: 150px;
+}
+
+.product-deets {
+  align-self: center;
+}
+
+.action-btns {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  border-radius: 2px;
+  padding: 0.4rem;
+  width: fit-content;
+
+  .quantity {
+    width: 18px;
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+  }
+}
+
+.add-icon {
+  background: url("/icons/add.svg") no-repeat center;
+}
+
+.remove-icon {
+  background: url("/icons/remove.svg") no-repeat center;
+}
+
+.delete-icon {
+  background: url("/icons/delete.svg") no-repeat center;
+}
+
+.checkout-icon {
+  background: url("/icons/cart-checkout.svg") no-repeat center;
+}
+
+.total-amount {
+  font-weight: 600;
+}
+
+.price-checkout {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1.6rem;
+}
+
+.price-info {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.discount-code {
+  display: flex;
+  align-items: stretch;
+
+  .mat-mdc-form-field-subscript-wrapper,
+  .mat-mdc-form-field-bottom-align::before {
+    display: none;
+  }
+
+  .mat-mdc-raised-button,
+  .mat-mdc-raised-button .mdc-button__ripple {
+    height: unset;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}

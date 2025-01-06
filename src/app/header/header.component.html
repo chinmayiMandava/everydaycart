@@ -1,0 +1,31 @@
+<header class="header">
+  <span>
+    <button mat-button>Shop</button>
+    <button mat-button>Categories</button>
+    <button mat-button>Offers</button>
+  </span>
+  <span class="app-nav">
+    <button
+      mat-icon-button
+      routerLink="wishlist"
+      matTooltip="Wish list"
+      matTooltipClass="tooltip"
+    >
+      <span class="icon heart-icon"></span>
+      @if(noOfFavItems > 0) {
+      <p class="total-items">{{ noOfFavItems }}</p>
+      }
+    </button>
+    <button
+      mat-icon-button
+      routerLink="cart"
+      matTooltipClass="tool-tip"
+      matTooltip="Shopping cart"
+    >
+      <span class="icon cart-icon"></span>
+      @if(itemsInCart > 0) {
+      <p class="total-items">{{ itemsInCart }}</p>
+      }
+    </button>
+  </span>
+</header>

@@ -1,0 +1,68 @@
+<section>
+  <div class="navigation">
+    <p>
+      <span routerLink="" class="route">Home</span><span class="nav">/</span>
+      <span class="current">Collections</span>
+    </p>
+  </div>
+  <h2 class="title">{{ items.title }}</h2>
+  <p class="products-num">{{ items.products.length }} products found</p>
+  <div class="items">
+    @for(item of items.products; track item.id) {
+    <div class="item" routerLink="/product/{{ item.category }}/{{ item.id }}">
+      <div class="image-collections">
+        <img src="{{ item.imageSrc }}" />
+      </div>
+      <div class="item-deets">
+        <div class="item-availability">
+          <p class="title fn-wt--md">{{ item.name }}</p>
+          @if(item.availability === 'IN_STOCK') {
+          <p class="tag tag--green fn-wt--bo">In stock</p>
+          } @else if(item.availability === 'SOLD_OUT') {
+          <p class="tag tag--red fn-wt--bo">Sold out</p>
+          }
+        </div>
+        <div class="price-quantity">
+          <span class="price">
+            <!-- <span class="icon--sm price-tag-icon"></span> -->
+            &#8377;{{ item.price }}</span
+          >
+        </div>
+        <span class="ratings">
+          <span class="icon--sm star-icon"></span>
+          <span class="icon--sm star-icon"></span>
+          <span class="icon--sm star-icon"></span>
+          <span class="icon--sm star-icon"></span>
+          <span class="icon--sm star-icon"></span>
+          <span>
+            <span>{{ item.averageReviews }}</span>
+            <span>({{ item.reviews }})</span>
+          </span>
+        </span>
+        <span class="action-btns">
+          <button
+            mat-raised-button
+            [disabled]="item.availability === 'SOLD_OUT'"
+            (click)="$event.stopPropagation(); addToCart(item)"
+          >
+            Add to cart
+          </button>
+          @if(item.isAddedToFav) {
+          <span
+            matTooltip="Wish list"
+            (click)="addToFav(item, 'added')"
+            class="icon heart-added-icon"
+          ></span>
+          } @else {
+          <span
+            matTooltip="Wish list"
+            (click)="addToFav(item)"
+            class="icon heart-add-icon"
+          ></span>
+          }
+        </span>
+      </div>
+    </div>
+    }
+  </div>
+</section>

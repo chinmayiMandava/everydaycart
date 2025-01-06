@@ -1,0 +1,63 @@
+<div class="items">
+  @for(product of totalProducts; track product.id) {
+  <div
+    class="item"
+    routerLink="/product/{{ product.category }}/{{ product.id }}"
+  >
+    <div class="image-collections">
+      <img src="{{ product.imageSrc }}" />
+    </div>
+    <div class="item-deets">
+      <div class="item-availability">
+        <p class="title fn-wt--md">{{ product.name }}</p>
+        @if(product.availability === 'IN_STOCK') {
+        <p class="tag tag--green fn-wt--bo">In stock</p>
+        } @else if(product.availability === 'SOLD_OUT') {
+        <p class="tag tag--red fn-wt--bo">Sold out</p>
+        }
+      </div>
+      <div class="price-quantity">
+        <span class="price">
+          <!-- <span class="icon--sm price-tag-icon"></span> -->
+          &#8377;{{ product.price }}</span
+        >
+      </div>
+      <span class="ratings">
+        <span class="icon--sm star-icon"></span>
+        <span class="icon--sm star-icon"></span>
+        <span class="icon--sm star-icon"></span>
+        <span class="icon--sm star-icon"></span>
+        <span class="icon--sm star-icon"></span>
+        <span>
+          <span>{{ product.averageReviews }}</span>
+          <span>({{ product.reviews }})</span>
+        </span>
+      </span>
+      <span class="action-btns">
+        <button
+          mat-raised-button
+          [disabled]="product.availability === 'SOLD_OUT'"
+          (click)="$event.stopPropagation(); addToCart(product)"
+        >
+          Add to cart
+        </button>
+        @if(product.isAddedToFav) {
+        <span
+          matTooltip="Wish list"
+          (click)="addToFav(product, 'added')"
+          class="icon heart-added-icon"
+        ></span>
+        } @else {
+        <span
+          matTooltip="Wish list"
+          (click)="addToFav(product)"
+          class="icon heart-add-icon"
+        ></span>
+        }
+      </span>
+    </div>
+  </div>
+  }
+</div>
+
+<section></section>

@@ -1,0 +1,179 @@
+<div class="dashboard padding--extra-large">
+  <div class="grid-1">
+    <span>
+      <p class="dashboard--title main--dash">
+        Enjoy the Convenience of Shopping for Groceries Online – Freshness
+        Guaranteed with Every Order
+      </p>
+      <button mat-raised-button class="btn--explore">
+        <a href="#categories">Explore &darr;</a>
+      </button>
+    </span>
+    <span class="paper-bag-img"></span>
+  </div>
+  <div class="grid-2">
+    <span class="grid--info">
+      <p class="dashboard--title">Freshness that fuels your day</p>
+      <p class="dashboard--description">
+        Juicy fruits and vibrant veggies, always fresh
+      </p>
+      <button
+        mat-raised-button
+        class="grid--btn"
+        (click)="routeTo('fruitsNdVegetables')"
+      >
+        Shop now
+      </button>
+    </span>
+    <span class="veggies-img"></span>
+  </div>
+  <div class="grid-3">
+    <span class="grid--info">
+      <p class="dashboard--title">Pure, fresh, and creamy diary</p>
+      <p class="dashboard--description">
+        Wholesome dairy for your daily nourishment
+      </p>
+      <button
+        mat-raised-button
+        class="grid--btn"
+        (click)="routeTo('diaryProducts')"
+      >
+        Shop now
+      </button>
+    </span>
+    <span class="cheese-img"></span>
+  </div>
+</div>
+
+<section class="padding--extra-large">
+  <h2 class="section-heading">Most bought and liked</h2>
+  <div>
+    <app-dashboard-products
+      [products]="bestSellingProducts"
+    ></app-dashboard-products>
+  </div>
+</section>
+
+<section class="section--fill" id="categories">
+  <div class="padding--large">
+    <h2 class="section-heading">Your Daily Grocery Essentials</h2>
+    <div class="grid grid--5-cols stationary-options">
+      @for (category of categoryData; track category.id) {
+      <span class="category {{ category.class }}">
+        <p class="category-title">{{ category.title }}</p>
+        <button
+          mat-raised-button
+          class="button--category"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          (click)="routeTo(category.data)"
+        >
+          Shop now
+        </button>
+      </span>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="padding--extra-large">
+  <h2 class="section-heading">Explore new arrivals</h2>
+  <div>
+    <app-dashboard-products [products]="newProducts"></app-dashboard-products>
+  </div>
+</section>
+
+<section>
+  <section class="section-why-choose-us section--fill">
+    <h2 class="section-heading">Why choose us?</h2>
+    <div
+      class="container container--large grid grid--4-cols why-choose-us-content"
+    >
+      <div class="why-choose-us-block">
+        <span class="icon icon--large offer-icon"></span>
+        <h3 class="why-choose-us-title">Best Prices & Offers</h3>
+        <p class="why-choose-us-description">
+          Enjoy great savings with competitive prices and exclusive deals on all
+          your essentials
+        </p>
+      </div>
+      <div class="why-choose-us-block">
+        <span class="icon icon--large delivery-icon"></span>
+        <h3 class="why-choose-us-title">Fast delivery</h3>
+        <p class="why-choose-us-description">
+          Your time matters. Enjoy lightning-fast delivery right to your
+          doorstep, ensuring your essentials arrive fresh and on time
+        </p>
+      </div>
+      <div class="why-choose-us-block">
+        <span class="icon icon--large eco-icon"></span>
+        <h3 class="why-choose-us-title">Freshness Guaranteed</h3>
+        <p class="why-choose-us-description">
+          We source the finest products daily to ensure unbeatable freshness and
+          quality for your family
+        </p>
+      </div>
+      <div class="why-choose-us-block">
+        <span class="icon icon--large return-icon"></span>
+        <h3 class="why-choose-us-title">Easy Returns/Refund</h3>
+        <p class="why-choose-us-description">
+          Not satisfied with a product? Return it at the doorstep & get a refund
+          within hours.
+        </p>
+      </div>
+    </div>
+  </section>
+</section>
+
+<section class="section-cta" id="cta">
+  <div class="container">
+    <div class="cta">
+      <div class="cta-text-box">
+        <h2 class="heading-secondary">Get your first meal for free!</h2>
+        <p class="cta-text">
+          Healthy, tasty and hassle-free meals are waiting for you. Start eating
+          well today. You can cancel or pause anytime. And the first meal is on
+          us!
+        </p>
+
+        <form class="cta-form" action="#">
+          <div>
+            <label for="full-name">Full name</label>
+            <input
+              id="full-name"
+              type="text"
+              placeholder="Smith John"
+              required
+            />
+          </div>
+          <div>
+            <label for="email">Email address</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="me@example.com"
+              required
+            />
+          </div>
+          <div>
+            <label for="select-where">Where did you hear about us?</label>
+            <select id="select-where" required>
+              <option value="">Please choose one option:</option>
+              <option value="friends">Friends and family</option>
+              <option value="youtube">Youtube</option>
+              <option value="podcast">Podcast</option>
+              <option value="ad">Facebook ad</option>
+              <option value="other">Others</option>
+            </select>
+          </div>
+          <button class="btn btn--form">Sign up now</button>
+        </form>
+      </div>
+      <div
+        class="cta-img-box"
+        role="img"
+        aria-label="Woman carrying grocery"
+      ></div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 2.4rem;
+  font-size: 1.6rem;
+  background-color: #fff;
+  z-index: 999;
+  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03);
+}
+
+button {
+  position: relative;
+}
+
+.total-items {
+  position: absolute;
+  top: 0;
+  right: -3px;
+  background-color: #f08c00;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  height: 16px;
+  width: 18px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+::ng-deep .tool-tip {
+  font-size: 14px;
+}

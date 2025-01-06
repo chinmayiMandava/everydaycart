@@ -1,0 +1,32 @@
+section {
+  padding: 6rem;
+}
+
+h2 {
+  margin-bottom: 4rem !important;
+}
+
+.table {
+  height: calc(100vh - 35rem);
+  overflow: auto;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.delete-icon {
+  background: url("/icons/delete.svg") no-repeat center;
+}
+
+.image {
+  width: 10rem;
+  background-size: cover;
+}
+
+.products-num {
+  font-weight: 600;
+  margin-bottom: 2rem;
+}

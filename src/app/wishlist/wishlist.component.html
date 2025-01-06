@@ -1,0 +1,78 @@
+<section>
+  <div class="navigation">
+    <p>
+      <span routerLink="" class="route">Home</span><span class="nav">/</span>
+      <span class="current">Wish list</span>
+    </p>
+  </div>
+  <h2 class="title">Wish list</h2>
+  @if(dataSource.data.length > 0) {
+  <p class="products-num">
+    {{ dataSource.data.length }} products added to wish list
+  </p>
+  <div class="table">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let product">
+          <img
+            class="image"
+            src="{{ product.imageSrc }}"
+            alt="An image of product"
+          />
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="product">
+        <th mat-header-cell *matHeaderCellDef>Product</th>
+        <td mat-cell *matCellDef="let product">{{ product.name }}</td>
+      </ng-container>
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Price</th>
+        <td mat-cell *matCellDef="let product">{{ product.price }}</td>
+      </ng-container>
+      <ng-container matColumnDef="availability">
+        <th mat-header-cell *matHeaderCellDef>Availability</th>
+        <td mat-cell *matCellDef="let product">
+          @if(product.availability === 'IN_STOCK') {
+          <p class="tag tag--green fn-wt--bo">In stock</p>
+          } @else if(product.availability === 'SOLD_OUT') {
+          <p class="tag tag--red fn-wt--bo">Sold out</p>
+          }
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="addToCart">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let product">
+          <button
+            mat-raised-button
+            (click)="addToCart(product)"
+            [disabled]="product.availability === 'SOLD_OUT'"
+          >
+            Add to cart
+          </button>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="remove">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let product">
+          <span
+            class="icon delete-icon"
+            (click)="removeFromWishList(product)"
+          ></span>
+        </td>
+      </ng-container>
+      <tr
+        mat-header-row
+        class="header"
+        *matHeaderRowDef="displayedColumns"
+      ></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  } @else() {
+  <h3>
+    No products were added. Go back to
+    <a class="anchor-link" routerLink="">home</a>
+  </h3>
+  }
+</section>
