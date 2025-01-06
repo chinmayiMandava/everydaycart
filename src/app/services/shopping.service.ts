@@ -12,6 +12,7 @@ export class ShoppingService {
   productsAddedToCart: any[] = [];
   itemsInWishlist = new EventEmitter();
   itemsInCart = new EventEmitter();
+  addToCart = new EventEmitter();
 
   constructor(private snackbar: MatSnackBar) {
     this.updateWishList.subscribe((res: any) => {
@@ -24,6 +25,10 @@ export class ShoppingService {
       if (res.action === 'add') this.addProductToCart(res.product);
       else if (res.action === 'remove') this.removeProductFromCart(res.product);
       else if (res.action === 'reduce') this.reduceProductToCart(res.product);
+    });
+
+    this.addToCart.subscribe((res: any) => {
+      this.addIndProductToCart(res.product);
     });
   }
 
@@ -45,6 +50,7 @@ export class ShoppingService {
   }
 
   get totalProductsAddedToShoopingCart() {
+    console.log(this.productsAddedToCart);
     return this.productsAddedToCart;
   }
 
@@ -59,6 +65,17 @@ export class ShoppingService {
     } else {
       this.openSnackbar('Maximum quantity of 10 units per product is allowed');
     }
+    this.updateCartCount();
+  }
+
+  addIndProductToCart(product: any) {
+    console.log(product);
+    let found = this.productsAddedToCart.find((p: any) => p.id === product.id);
+    if (found) found.quantity = product.quantity;
+    else {
+      this.productsAddedToCart.push(product);
+    }
+    this.openSnackbar('Product added to cart');
     this.updateCartCount();
   }
 

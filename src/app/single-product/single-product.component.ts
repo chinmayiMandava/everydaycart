@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { ShoppingService } from '../services/shopping.service';
 import { MatButtonModule } from '@angular/material/button';
@@ -51,16 +51,15 @@ export class SingleProductComponent implements OnInit {
 
   updateQuantity(method: string, product: any) {
     if (method === 'add') {
-      this.sService.updateCart.emit({ product, action: 'add' });
+      if (product && product.quantity < 10) product.quantity++;
     }
     if (method === 'reduce') {
-      if (product && product.quantity > 1) {
-        this.sService.updateCart.emit({ product, action: 'reduce' });
-      }
+      if (product && product.quantity > 1) product.quantity--;
     }
   }
 
   addToCart(product: any) {
-    this.sService.updateCart.emit({ product, action: 'add' });
+    console.log(product);
+    this.sService.addToCart.emit({ product });
   }
 }

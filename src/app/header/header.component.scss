@@ -11,8 +11,18 @@
   box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03);
 }
 
-button {
-  position: relative;
+.logo {
+  font-family: system-ui !important;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  margin-right: 1.2rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
 }
 
 .total-items {

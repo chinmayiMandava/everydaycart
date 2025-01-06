@@ -42,6 +42,14 @@ export class DashboardProductsComponent implements OnInit {
         this.totalProducts.push(el);
       });
     }
+    if (this.products.attaNdFlour) {
+      this.products.attaNdFlour.forEach((product: any) => {
+        let el = this.dataSer.attaNdFlour.products.find(
+          (pro) => pro.id === product
+        );
+        this.totalProducts.push(el);
+      });
+    }
   }
 
   addToCart(product: any) {

@@ -40,6 +40,7 @@ export class ShoppingCartComponent implements OnInit {
   getProductsAddedToCart() {
     this.products = this.service.totalProductsAddedToShoopingCart;
     this.dataSource = new MatTableDataSource(this.products);
+    console.log(this.products);
     this.getTotalPrice();
   }
 

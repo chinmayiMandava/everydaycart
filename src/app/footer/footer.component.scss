@@ -34,7 +34,6 @@
   font-size: 1.4rem;
   line-height: 1.6;
   columns: #767676;
-  margin-top: auto;
 }
 
 .footer-heading {
@@ -72,4 +71,12 @@
 .footer-link:hover,
 .footer-link:active {
   color: #555;
+}
+
+.logo {
+  font-family: system-ui !important;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  margin-right: 1.2rem;
 }

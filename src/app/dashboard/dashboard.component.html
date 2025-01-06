@@ -1,4 +1,4 @@
-<div class="dashboard padding--extra-large">
+<section class="dashboard padding--extra-large">
   <div class="grid-1">
     <span>
       <p class="dashboard--title main--dash">
@@ -43,9 +43,9 @@
     </span>
     <span class="cheese-img"></span>
   </div>
-</div>
+</section>
 
-<section class="padding--extra-large">
+<section class="padding--extra-large" id="bestsellers">
   <h2 class="section-heading">Most bought and liked</h2>
   <div>
     <app-dashboard-products
@@ -76,7 +76,7 @@
   </div>
 </section>
 
-<section class="padding--extra-large">
+<section class="padding--extra-large" id="newarrivals">
   <h2 class="section-heading">Explore new arrivals</h2>
   <div>
     <app-dashboard-products [products]="newProducts"></app-dashboard-products>
@@ -129,11 +129,12 @@
   <div class="container">
     <div class="cta">
       <div class="cta-text-box">
-        <h2 class="heading-secondary">Get your first meal for free!</h2>
+        <h2 class="heading-secondary">
+          Subscribe to stay updated on the latest offers!
+        </h2>
         <p class="cta-text">
-          Healthy, tasty and hassle-free meals are waiting for you. Start eating
-          well today. You can cancel or pause anytime. And the first meal is on
-          us!
+          Sign up for our newsletter and be the first to know about exclusive
+          deals and special offers!
         </p>
 
         <form class="cta-form" action="#">
@@ -166,7 +167,7 @@
               <option value="other">Others</option>
             </select>
           </div>
-          <button class="btn btn--form">Sign up now</button>
+          <button mat-button>Sign up now</button>
         </form>
       </div>
       <div

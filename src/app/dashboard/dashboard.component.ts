@@ -8,6 +8,7 @@ import {
   Router,
 } from '@angular/router';
 import { DashboardProductsComponent } from '../dashboard-products/dashboard-products.component';
+import { ShoppingService } from '../services/shopping.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -62,15 +63,17 @@ export class DashboardComponent {
     },
     {
       id: 6,
-      class: 'category--planners',
-      title: 'Planners',
+      class: 'category--nutsseeds',
+      title: 'Nuts & seeds',
       directTo: '',
+      data: 'nutsNdSeeds',
     },
     {
       id: 6,
-      class: 'category--calendars',
-      title: 'Calendars',
+      class: 'category--superfoods',
+      title: 'Super foods',
       directTo: '',
+      data: 'superFoods',
     },
   ];
 
@@ -83,11 +86,16 @@ export class DashboardComponent {
   newProducts = {
     snacksNdMunchies: [20],
     fruitsNdVegetables: [21, 22],
+    attaNdFlour: [65, 66],
   };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private service: ShoppingService) {}
 
   routeTo(data: any) {
     this.router.navigate(['collections', { data }]);
+  }
+
+  subscribe() {
+    this.service.openSnackbar("You've been subscribed succesfully!");
   }
 }
