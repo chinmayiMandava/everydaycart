@@ -71,35 +71,37 @@
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="shippingMode" label="Shipping method">
+  <mat-step label="Shipping method">
     <mat-radio-group class="shipping-options" [formControl]="shippingMode">
-      <mat-radio-button value="1">
+      <mat-radio-button value="0">
         <p>Standard method</p>
         <p class="shipping-fee">Free</p>
         <p>Deliveres with in 6-7 working hours</p>
       </mat-radio-button>
-      <mat-radio-button value="2">
+      <mat-radio-button value="70">
         <p>Express method</p>
-        <p class="shipping-fee">&#8377;150</p>
+        <p class="shipping-fee">&#8377;70</p>
         <p>Deliveres with in 2-3 working hours</p>
       </mat-radio-button>
     </mat-radio-group>
     <div class="shipping-btns">
       <button mat-raised-button matStepperPrevious>Back</button>
-      <button mat-raised-button matStepperNext>Next</button>
+      <button mat-raised-button matStepperNext (click)="getTotal()">
+        Next
+      </button>
     </div>
   </mat-step>
   <mat-step label="Payment mode">
     <div class="payment-options">
       @for(mode of paymentOptions; track mode.id) {
-      <div class="payment-option" routerLink="/success">
+      <div class="payment-option" (click)="clearCart()" routerLink="/success">
         <span class="payment-icon {{ mode.iconClass }}"></span>
         <span class="payment-option-text">
           <p>{{ mode.mainText }}</p>
           <p class="sub-text">{{ mode.subText }}</p>
         </span>
         <span class="total-amount">
-          <p class="shipping-fee">&#8377;150</p>
+          <p class="shipping-fee">&#8377;{{ checkoutTotal }}</p>
           <p class="payment-icon right-icon"></p>
         </span>
       </div>

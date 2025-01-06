@@ -389,3 +389,24 @@ a {
 .mat-mdc-tab-label-container {
   margin-bottom: 3.6rem;
 }
+
+/***********************/
+/*media queries*/
+/***********************/
+
+@media (max-width: 93.75em) {
+  html {
+    font-size: 54.25%;
+  }
+
+  .padding--extra-large {
+    padding: 0 6rem;
+  }
+}
+
+// below 700px
+@media (max-width: 43.75em) {
+  html {
+    font-size: 43.75%;
+  }
+}

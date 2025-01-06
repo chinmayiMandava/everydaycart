@@ -40,7 +40,6 @@ export class ShoppingCartComponent implements OnInit {
   getProductsAddedToCart() {
     this.products = this.service.totalProductsAddedToShoopingCart;
     this.dataSource = new MatTableDataSource(this.products);
-    console.log(this.products);
     this.getTotalPrice();
   }
 
@@ -71,10 +70,6 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   getTotalPrice() {
-    let price = 0;
-    for (let i = 0; i < this.products.length; i++) {
-      price += this.products[i].quantity * this.products[i].price;
-    }
-    this.checkoutTotal = price;
+    this.checkoutTotal = this.service.getTotalPrice();
   }
 }

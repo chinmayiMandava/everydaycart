@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatStepperModule } from '@angular/material/stepper';
 import {
   FormBuilder,
@@ -12,6 +12,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { RouterLink, RouterModule } from '@angular/router';
+import { ShoppingService } from '../services/shopping.service';
+import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
 
 @Component({
   selector: 'app-check-out',
@@ -30,7 +32,7 @@ import { RouterLink, RouterModule } from '@angular/router';
   templateUrl: './check-out.component.html',
   styleUrl: './check-out.component.scss',
 })
-export class CheckOutComponent {
+export class CheckOutComponent implements OnInit {
   private _formBuilder = inject(FormBuilder);
 
   addressFormGroup = this._formBuilder.group({
@@ -44,7 +46,7 @@ export class CheckOutComponent {
     city: [''],
     state: [''],
   });
-  shippingMode = new FormControl('1', []);
+  shippingMode = new FormControl('0', []);
 
   paymentOptions = [
     {
@@ -72,4 +74,26 @@ export class CheckOutComponent {
       subText: 'Pay at your door step',
     },
   ];
+
+  checkoutTotal = 0;
+
+  constructor(private service: ShoppingService) {}
+
+  getTotalPrice() {
+    this.checkoutTotal = this.service.getTotalPrice();
+  }
+
+  ngOnInit(): void {
+    this.getTotalPrice();
+  }
+
+  clearCart() {
+    this.service.clearCart();
+  }
+
+  getTotal() {
+    this.checkoutTotal += this.shippingMode.value
+      ? +this.shippingMode.value
+      : 0;
+  }
 }

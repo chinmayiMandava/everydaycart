@@ -110,4 +110,19 @@ export class ShoppingService {
       duration: 3000,
     });
   }
+
+  getTotalPrice() {
+    let price = 0;
+    for (let i = 0; i < this.totalProductsAddedToShoopingCart.length; i++) {
+      price +=
+        this.totalProductsAddedToShoopingCart[i].quantity *
+        this.totalProductsAddedToShoopingCart[i].price;
+    }
+    return price;
+  }
+
+  clearCart() {
+    this.productsAddedToCart = [];
+    this.updateCartCount();
+  }
 }
