@@ -44,3 +44,9 @@
 ::ng-deep .tool-tip {
   font-size: 14px;
 }
+
+@media (max-width: 31.25em) {
+  .page-nav {
+    display: none;
+  }
+}

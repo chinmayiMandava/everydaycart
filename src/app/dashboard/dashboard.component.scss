@@ -393,10 +393,27 @@ img {
   .stationary-options {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .why-choose-us-content {
+    grid-template-columns: unset;
+    grid-template-rows: repeat(4, 1fr);
+  }
 }
 
 @media (max-width: 43.75em) {
   .stationary-options {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 37.5em) {
+  .cta {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 28em) {
+  .stationary-options {
+    grid-template-columns: repeat(1, 1fr);
   }
 }

@@ -80,3 +80,9 @@
   letter-spacing: 0.8px;
   margin-right: 1.2rem;
 }
+
+@media (max-width: 67.81em) {
+  .grid--footer {
+    grid-template-columns: repeat(3, 1.5fr);
+  }
+}
